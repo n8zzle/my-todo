@@ -1,14 +1,11 @@
-import Head from "next/head";
-import NavigationBar from "../components/NavigationBar";
+import Menu from "../components/Menu";
+import Project from "../components/Project";
+
 export default function Home() {
   return (
-    <div>
-      <Head>
-        <title>Todo App</title>
-      </Head>
-
-      <NavigationBar />
-      <div>Hello Igors</div>
+    <div className="flex flex-col sm:flex-row h-screen w-screen">
+      <Menu />
+      <Project />
     </div>
   );
 }
