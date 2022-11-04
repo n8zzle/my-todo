@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .bg-signin {
+    background: #846b8a;
+    background: -webkit-linear-gradient(142deg, #846b8a 0%, #f7d4bc 100%);
+    background: linear-gradient(142deg, #846b8a 0%, #f7d4bc 100%);
+  }
+}
+
 html,
 body {
   padding: 0;

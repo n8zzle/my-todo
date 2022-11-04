@@ -17,8 +17,8 @@ const SignIn = (props: Props) => {
     signInWithPopup(auth, provider);
   };
   return (
-    <div className="flex justify-center items-center h-screen w-screen bg-violet-700">
-      <div className="gap-4 flex justify-around flex-row p-10 bg-white w-3/4 h-1/2 rounded-xl shadow-md">
+    <div className="flex justify-center items-center h-screen w-screen bg-signin">
+      <div className="gap-4 flex flex-col lg:flex-row justify-around p-10 bg-white w-3/4 h-auto rounded-xl shadow-md">
         <div className="w-full flex flex-col items-center justify-center space-y-5">
           <h1 className="font-extrabold text-black text-4xl">Sign in</h1>{" "}
           <form action="" className="flex flex-col space-y-5 w-full">
@@ -47,7 +47,7 @@ const SignIn = (props: Props) => {
         </div>
 
         <div className="flex flex-col text-black p-5  justify-center w-full items-center">
-          <h3>Alternative way to sign in</h3>
+          <h3 className="font-bold text-sm">Alternative way to sign in</h3>
           <GoogleLoginButton onClick={SignInWithGoogle} />
           <FacebookLoginButton onClick={() => alert("Login with Facebook ")} />
           <GithubLoginButton onClick={() => alert("Login with Github")} />
