@@ -12,10 +12,12 @@ import { auth, provider } from "../configs/firebase.config";
 import { signInWithPopup } from "firebase/auth";
 
 type Props = {};
+
 const SignIn = (props: Props) => {
   const SignInWithGoogle = () => {
     signInWithPopup(auth, provider);
   };
+
   return (
     <div className="flex justify-center items-center h-screen w-screen bg-signin">
       <div className="gap-4 flex flex-col lg:flex-row justify-around p-10 bg-white w-3/4 h-auto rounded-xl shadow-md">
@@ -45,7 +47,6 @@ const SignIn = (props: Props) => {
             </Button>
           </form>
         </div>
-
         <div className="flex flex-col text-black p-5  justify-center w-full items-center">
           <h3 className="font-bold text-sm">Alternative way to sign in</h3>
           <GoogleLoginButton onClick={SignInWithGoogle} />
