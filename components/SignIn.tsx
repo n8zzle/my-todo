@@ -8,13 +8,23 @@ import {
   GoogleLoginButton,
   TwitterLoginButton,
 } from "react-social-login-buttons";
-import { auth, provider } from "../configs/firebase.config";
-import { signInWithPopup } from "firebase/auth";
+import { auth } from "../configs/firebase.config";
+import {
+  FacebookAuthProvider,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 
 type Props = {};
 
 const SignIn = (props: Props) => {
   const SignInWithGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider);
+  };
+
+  const SignInWithFacebook = () => {
+    const provider = new FacebookAuthProvider();
     signInWithPopup(auth, provider);
   };
 
@@ -50,7 +60,7 @@ const SignIn = (props: Props) => {
         <div className="flex flex-col text-black p-5  justify-center w-full items-center">
           <h3 className="font-bold text-sm">Alternative way to sign in</h3>
           <GoogleLoginButton onClick={SignInWithGoogle} />
-          <FacebookLoginButton onClick={() => alert("Login with Facebook ")} />
+          <FacebookLoginButton onClick={SignInWithFacebook} />
           <GithubLoginButton onClick={() => alert("Login with Github")} />
           <TwitterLoginButton onClick={() => alert("Login with Twitter")} />
         </div>

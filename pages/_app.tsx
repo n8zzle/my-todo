@@ -4,7 +4,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../configs/firebase.config";
 import SignIn from "../components/SignIn";
 import Loading from "../components/Loading";
-
 import { useEffect } from "react";
 import { doc, setDoc } from "firebase/firestore";
 
