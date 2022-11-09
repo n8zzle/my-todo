@@ -11,6 +11,7 @@ import {
 import { auth } from "../configs/firebase.config";
 import {
   FacebookAuthProvider,
+  GithubAuthProvider,
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
@@ -27,7 +28,10 @@ const SignIn = (props: Props) => {
     const provider = new FacebookAuthProvider();
     signInWithPopup(auth, provider);
   };
-
+  const SignInWithGitHub = () => {
+    const provider = new GithubAuthProvider();
+    signInWithPopup(auth, provider);
+  };
   return (
     <div className="flex justify-center items-center h-screen w-screen bg-signin">
       <div className="gap-4 flex flex-col lg:flex-row justify-around p-10 bg-white w-3/4 h-auto rounded-xl shadow-md">
@@ -61,7 +65,7 @@ const SignIn = (props: Props) => {
           <h3 className="font-bold text-sm">Alternative way to sign in</h3>
           <GoogleLoginButton onClick={SignInWithGoogle} />
           <FacebookLoginButton onClick={SignInWithFacebook} />
-          <GithubLoginButton onClick={() => alert("Login with Github")} />
+          <GithubLoginButton onClick={SignInWithGitHub} />
           <TwitterLoginButton onClick={() => alert("Login with Twitter")} />
         </div>
       </div>
