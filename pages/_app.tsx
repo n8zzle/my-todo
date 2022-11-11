@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     if (user) {
-      setDoc(doc(db, "User", "user-id"), {
+      setDoc(doc(db, "User", user.uid), {
         name: user.displayName,
         email: user.email,
         photo: user.photoURL,

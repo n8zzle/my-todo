@@ -13,7 +13,11 @@ const Project = (props: Props) => {
     <div className="flex flex-col w-full h-full">
       <Navbar />
       <hr />
-      <div className="bg-signin h-full w-full">{user.displayName}</div>
+      <div className="bg-signin h-full w-full">
+        {user.displayName}
+        {user.email}
+        {user.photoURL}
+      </div>
     </div>
   );
 };
