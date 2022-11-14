@@ -20,6 +20,7 @@ import {
 import PersonIcon from "@mui/icons-material/Person";
 import { toast, ToastContainer } from "react-toastify";
 import { doc, setDoc } from "firebase/firestore";
+import Head from "next/head";
 
 type Props = {};
 
@@ -76,6 +77,9 @@ const SignIn = (props: Props) => {
 
   return (
     <div className=" flex flex-col lg:flex-row justify-center items-center lg:h-screen w-screen bg-signin">
+      <Head>
+        <title>Turbo SignIn</title>
+      </Head>
       <div className="gap-4 flex flex-col lg:flex-row justify-around p-5 lg:p-10 m-5 lg:m-10  bg-white w-5/6 lg:w-2/4 h-auto rounded-xl shadow-md ">
         {/*TODO: Sign in with credentials  */}
         <div className="w-full flex flex-col items-center justify-center space-y-2 lg:space-y-5">
