@@ -77,40 +77,48 @@ const Menu = (props: Props) => {
             <h3 className="text-black">Contact Information</h3>
           </div>
         </Link>
-        <div className="flex flex-row space-x-3 cursor-pointer">
-          <ReceiptIcon className="text-black" />
-          <h3 className="text-black">Invoices Balances</h3>
-        </div>
+        <Link href="/InvoicesBalances">
+          <div className="flex flex-row space-x-3 cursor-pointer">
+            <ReceiptIcon className="text-black" />
+            <h3 className="text-black">Invoices Balances</h3>
+          </div>
+        </Link>
         <div>
           <h4 className="text-black text-sm">Pages</h4>
         </div>
-        <div className="flex flex-row space-x-3 cursor-pointer">
-          <AccountBoxIcon className="text-black" />
-          <h3 className="text-black">Profile Form</h3>
-        </div>
-        <div className="flex flex-row space-x-3 cursor-pointer">
-          <CalendarMonthIcon className="text-black" />
-          <h3 className="text-black">Calendar</h3>
-        </div>
-        <div className="flex flex-row space-x-3 cursor-pointer">
-          <QuizIcon className="text-black" />
-          <h3 className="text-black">FAQ Page</h3>
-        </div>
+        <Link href="/ProfileForm">
+          <div className="flex flex-row space-x-3 cursor-pointer">
+            <AccountBoxIcon className="text-black" />
+            <h3 className="text-black">Profile Form</h3>
+          </div>
+        </Link>
+        <Link href="/Calendar">
+          <div className="flex flex-row space-x-3 cursor-pointer">
+            <CalendarMonthIcon className="text-black" />
+            <h3 className="text-black">Calendar</h3>
+          </div>
+        </Link>
         <div>
           <h4 className="text-black text-sm">Charts</h4>
         </div>
-        <div className="flex flex-row space-x-3 cursor-pointer">
-          <BarChartIcon className="text-black" />
-          <h3 className="text-black">Bar Chart</h3>
-        </div>
-        <div className="flex flex-row space-x-3 cursor-pointer">
-          <PieChartIcon className="text-black" />
-          <h3 className="text-black">Pie Chart</h3>
-        </div>
-        <div className="flex flex-row space-x-3 cursor-pointer">
-          <ShowChartIcon className="text-black" />
-          <h3 className="text-black">Line Chart</h3>
-        </div>
+        <Link href="/BarChart">
+          <div className="flex flex-row space-x-3 cursor-pointer">
+            <BarChartIcon className="text-black" />
+            <h3 className="text-black">Bar Chart</h3>
+          </div>
+        </Link>
+        <Link href="/PieChart">
+          <div className="flex flex-row space-x-3 cursor-pointer">
+            <PieChartIcon className="text-black" />
+            <h3 className="text-black">Pie Chart</h3>
+          </div>
+        </Link>
+        <Link href="/LineChart">
+          <div className="flex flex-row space-x-3 cursor-pointer">
+            <ShowChartIcon className="text-black" />
+            <h3 className="text-black">Line Chart</h3>
+          </div>
+        </Link>
       </div>
     </div>
   );

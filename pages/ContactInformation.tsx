@@ -6,7 +6,7 @@ type Props = {};
 
 const ContactInformation = (props: Props) => {
   return (
-    <div className="w-full h-full flex flex-row">
+    <div className="w-screen h-screen flex flex-row">
       <Menu />
       <div className="w-full">
         <Navbar />

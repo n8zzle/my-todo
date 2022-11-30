@@ -4,16 +4,16 @@ import Navbar from "../components/NavBar";
 
 type Props = {};
 
-const Dashboard = (props: Props) => {
+const ProfileForm = (props: Props) => {
   return (
     <div className="w-screen h-screen flex flex-row">
       <Menu />
       <div className="w-full">
         <Navbar />
-        Dashboard
+        Profile Form
       </div>
     </div>
   );
 };
 
-export default Dashboard;
+export default ProfileForm;
