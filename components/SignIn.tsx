@@ -18,7 +18,7 @@ import {
   signInWithRedirect,
 } from "firebase/auth";
 import PersonIcon from "@mui/icons-material/Person";
-import { toast, ToastContainer } from "react-toastify";
+
 import { doc, setDoc } from "firebase/firestore";
 import Head from "next/head";
 
@@ -60,20 +60,6 @@ const SignIn = (props: Props) => {
     const password = document.getElementById("Password").value;
     signInWithEmailAndPassword(auth, email, password);
   };
-
-  function Toast(Message) {
-    console.log(Message);
-    toast(Message, {
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
-  }
 
   return (
     <div className=" flex flex-col lg:flex-row justify-center items-center lg:h-screen w-screen bg-signin">
@@ -158,7 +144,6 @@ const SignIn = (props: Props) => {
               >
                 Register
               </Button>
-              <ToastContainer />
             </div>
           </form>
         </div>

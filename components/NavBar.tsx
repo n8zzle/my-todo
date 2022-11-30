@@ -1,45 +1,30 @@
-import { Avatar, Button, IconButton } from "@mui/material";
+import { Avatar, IconButton, Switch } from "@mui/material";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../configs/firebase.config";
-import AddIcon from "@mui/icons-material/Add";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { signOut } from "firebase/auth";
+
 type Props = {};
 
 const Navbar = (props: Props) => {
-  const [user] = useAuthState(auth);
-
-  const newTask = () => {
-    const name = prompt("Task name");
-    const description = prompt("Task description");
-    const result = [name, description];
-    console.log(result);
-  };
-
-  const CheckAvilability = (user) => {
-    console.log(user);
-    if (!user.displayName) {
-      return user.email;
+  // Switch logic
+  // By default disabled
+  // onChange should print in colsole enabled or disabped
+  const handleChange = (e, value) => {
+    if (value == true) {
+      //console.log("true");
     } else {
-      return user.displayName;
+      //console.log("false");
     }
   };
 
   return (
-    <div className="bg-white w-full p-5 h-[75px] flex gap-4">
-      <div className="flex w-1/2 items-center">
-        <h1 className="text-black font-semibold text-lg">Add Task</h1>
-        <IconButton className="space-x-3" onClick={newTask}>
-          <AddIcon className="text-black" />
-        </IconButton>
-      </div>
-      <div className="flex w-1/2 items-center justify-end space-x-5">
-        <h3 className="text-sm text-black">{CheckAvilability(user)}</h3>
-        <IconButton>
-          <Avatar
-            src={user.photoURL}
-            onClick={() => auth.signOut()}
-            className="cursor-pointer"
-          />
+    <div className="bg-white w-full p-5 h-[75px] flex flex-row gap-4 justify-end">
+      <div className="flex items-center space-x-5">
+        <Switch onChange={handleChange} />
+        <IconButton onClick={() => signOut(auth)}>
+          <LogoutIcon />
         </IconButton>
       </div>
     </div>
