@@ -6,6 +6,7 @@ import SignIn from "../components/SignIn";
 import Loading from "../components/Loading";
 import { useEffect } from "react";
 import { doc, setDoc } from "firebase/firestore";
+import { ThemeProvider } from "next-themes";
 
 function MyApp({ Component, pageProps }) {
   const [user, loading] = useAuthState(auth);
@@ -23,11 +24,14 @@ function MyApp({ Component, pageProps }) {
   if (loading) {
     return <Loading />;
   }
-
   if (!user) {
     return <SignIn />;
   } else {
-    return <Component {...pageProps} />;
+    return (
+      <ThemeProvider attribute="class">
+        <Component {...pageProps} />{" "}
+      </ThemeProvider>
+    );
   }
 }
 

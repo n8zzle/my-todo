@@ -43,22 +43,29 @@ const SignIn = (props: Props) => {
   const Registration = () => {
     const email = document.getElementById("regEmail").value;
     const password = document.getElementById("regPassword").value;
-    // console.log(name);
-    // console.log(email);
-    // console.log(password);
-    createUserWithEmailAndPassword(auth, email, password).catch((error) => {
-      const Message = error.message;
-      const Code = error.code;
-      // console.log(Message);
-      // console.log(Code);
-      Toast(Message);
-    });
+    if (!email && !password) {
+      console.log("Email or Password are empty");
+      return null;
+    } else {
+      createUserWithEmailAndPassword(auth, email, password).catch((error) => {
+        const Message = error.message;
+        const Code = error.code;
+        // console.log(Message);
+        // console.log(Code);
+        Toast(Message);
+      });
+    }
   };
 
   const SignInWithEmail = () => {
     const email = document.getElementById("Email").value;
     const password = document.getElementById("Password").value;
-    signInWithEmailAndPassword(auth, email, password);
+    if (!email && !password) {
+      console.log("Email or Password are empty");
+      return null;
+    } else {
+      signInWithEmailAndPassword(auth, email, password);
+    }
   };
 
   return (
@@ -66,10 +73,9 @@ const SignIn = (props: Props) => {
       <Head>
         <title>Turbo SignIn</title>
       </Head>
-      <div className="gap-4 flex flex-col lg:flex-row justify-around p-5 lg:p-10 m-5 lg:m-10  bg-white w-5/6 lg:w-2/4 h-auto rounded-xl shadow-md ">
-        {/*TODO: Sign in with credentials  */}
+      <div className="gap-4 flex flex-col lg:flex-row justify-around p-5 lg:p-10 m-5 lg:m-10 dark:bg-black bg-white w-5/6 lg:w-2/4 h-auto rounded-xl shadow-md ">
         <div className="w-full flex flex-col items-center justify-center space-y-2 lg:space-y-5">
-          <h1 className="font-extrabold text-black text-2xl lg:text-4xl">
+          <h1 className="font-extrabold dark:text-white  text-black text-2xl lg:text-4xl">
             Sign in
           </h1>{" "}
           <form
@@ -77,18 +83,18 @@ const SignIn = (props: Props) => {
             className="flex flex-col space-y-2 lg:space-y-5 w-full"
           >
             <div className="flex items-center space-x-3">
-              <EmailIcon className="text-black" />{" "}
+              <EmailIcon className="text-black dark:text-white " />{" "}
               <input
                 id="Email"
-                className="w-full border bg-white rounded-md p-3 text-black"
+                className="w-full border dark:bg-black dark:text-white bg-white rounded-md p-3 text-black"
                 placeholder="Email"
               />
             </div>
             <div className="flex items-center space-x-3">
-              <PasswordIcon className="text-black" />
+              <PasswordIcon className="text-black dark:text-white" />
               <input
                 id="Password"
-                className="w-full border bg-white rounded-md p-3 text-black"
+                className="w-full border dark:bg-black bg-white rounded-md p-3 dark:text-white text-black"
                 placeholder="Password"
                 type="password"
               />
@@ -96,7 +102,7 @@ const SignIn = (props: Props) => {
             <div className="flex flex-row w-full justify-center">
               <Button
                 variant="outlined"
-                className="text-violet-600 p-3 w-2/3"
+                className="p-3 w-3/4"
                 onClick={SignInWithEmail}
               >
                 Sign in
@@ -112,26 +118,26 @@ const SignIn = (props: Props) => {
           {/* <GithubLoginButton onClick={SignInWithGitHub} /> */}
         </div>
       </div>
-      <div className="bg-white h-auto w-5/6 lg:w-2/4 rounded-lg shadow-md p-5 m-5 lg:m-10 lg:p-10">
+      <div className="bg-white dark:bg-black h-auto w-5/6 lg:w-2/4 rounded-lg shadow-md p-5 m-5 lg:m-10 lg:p-10">
         <div className="w-full flex flex-col items-center justify-center space-y-2 lg:space-y-5">
-          <h1 className="font-extrabold text-black text-2xl lg:text-4xl">
+          <h1 className="font-extrabold dark:text-white text-black text-2xl lg:text-4xl">
             Register
           </h1>{" "}
           {/* Creating new account */}
           <form className="flex flex-col space-y-2 lg:space-y-5 w-full">
             <div className="flex items-center space-x-3">
-              <EmailIcon className="text-black" />{" "}
+              <EmailIcon className="text-black dark:text-white" />{" "}
               <input
                 id="regEmail"
-                className="w-full bg-white  border rounded-md p-3 text-black"
+                className="w-full dark:bg-black bg-white  border rounded-md p-3 dark:text-white text-black"
                 placeholder="Email"
               />
             </div>
             <div className="flex items-center space-x-3">
-              <PasswordIcon className="text-black" />
+              <PasswordIcon className="text-black dark:text-white" />
               <input
                 id="regPassword"
-                className="w-full bg-white border rounded-md p-3 text-black"
+                className="w-full dark:bg-black bg-white border rounded-md p-3 dark:text-white text-black"
                 placeholder="Password"
                 type="password"
               />

@@ -12,19 +12,16 @@ const Navbar = (props: Props) => {
   // By default disabled
   // onChange should print in colsole enabled or disabped
   const handleChange = (e, value) => {
-    if (value == true) {
-      //console.log("true");
-    } else {
-      //console.log("false");
-    }
+    console.log(e);
+    console.log(value);
   };
 
   return (
-    <div className="bg-white w-full p-5 h-[75px] flex flex-row gap-4 justify-end">
+    <div className="bg-white dark:bg-black w-full p-5 h-[75px] flex flex-row gap-4 justify-end">
       <div className="flex items-center space-x-5">
         <Switch onChange={handleChange} />
         <IconButton onClick={() => signOut(auth)}>
-          <LogoutIcon />
+          <LogoutIcon className="text-black dark:text-white " />
         </IconButton>
       </div>
     </div>
